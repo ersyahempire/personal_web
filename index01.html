@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ersyah Empire | Premium Digital Hub</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            gold: '#d4af37',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-jakarta bg-[#0a0a0d] text-[#f1f1f1] overflow-hidden">
+
+  <!-- FLEX CONTAINER -->
+  <div class="flex flex-col md:flex-row h-screen w-full">
+
+    <!-- HOME -->
+    <div class="group relative flex-1 cursor-pointer flex items-center justify-center overflow-hidden transition-all duration-700 ease-in-out hover:flex-[3] bg-gradient-to-b from-[#141418] to-[#0a0a0d]">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.25),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+      <div class="absolute text-[42px] font-extrabold tracking-widest uppercase z-10 transition-all duration-500 group-hover:-translate-y-28 group-hover:text-[28px] group-hover:text-gold">Home</div>
+
+      <div class="absolute bottom-[-100%] max-w-sm text-center text-sm leading-relaxed text-neutral-400 z-10 transition-all duration-500 group-hover:bottom-20">
+        <p>
+          <a href="#" target="_blank" class="text-gold font-semibold">Corporate Website</a><br>
+          Portal utama merangkumi perniagaan, sistem dalaman dan projek digital Ersyah Empire.
+        </p>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="group relative flex-1 cursor-pointer flex items-center justify-center overflow-hidden transition-all duration-700 ease-in-out hover:flex-[3] bg-gradient-to-b from-[#111827] to-[#0a0a0d]">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.25),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+      <div class="absolute text-[42px] font-extrabold tracking-widest uppercase z-10 transition-all duration-500 group-hover:-translate-y-28 group-hover:text-[28px] group-hover:text-gold">About</div>
+
+      <div class="absolute bottom-[-100%] max-w-sm text-center text-sm leading-relaxed text-neutral-400 z-10 transition-all duration-500 group-hover:bottom-20">
+        <p>
+          Homestay Platform<br>
+          Sistem tempahan, maklumat lokasi dan pengurusan penginapan secara profesional.
+        </p>
+      </div>
+    </div>
+
+    <!-- WORK -->
+    <div class="group relative flex-1 cursor-pointer flex items-center justify-center overflow-hidden transition-all duration-700 ease-in-out hover:flex-[3] bg-gradient-to-b from-[#0f172a] to-[#020617]">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.25),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+      <div class="absolute text-[42px] font-extrabold tracking-widest uppercase z-10 transition-all duration-500 group-hover:-translate-y-28 group-hover:text-[28px] group-hover:text-gold">Work</div>
+
+      <div class="absolute bottom-[-100%] max-w-sm text-center text-sm leading-relaxed text-neutral-400 z-10 transition-all duration-500 group-hover:bottom-20">
+        <p class="mb-2">Media & Marketing</p>
+        <ul class="space-y-1">
+          <li>Kempen Digital</li>
+          <li>Media Sosial</li>
+          <li>Content Strategy</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="group relative flex-1 cursor-pointer flex items-center justify-center overflow-hidden transition-all duration-700 ease-in-out hover:flex-[3] bg-gradient-to-b from-[#020617] to-black">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.25),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+      <div class="absolute text-[42px] font-extrabold tracking-widest uppercase z-10 transition-all duration-500 group-hover:-translate-y-28 group-hover:text-[28px] group-hover:text-gold">Contact</div>
+
+      <div class="absolute bottom-[-100%] max-w-sm text-center text-sm leading-relaxed text-neutral-400 z-10 transition-all duration-500 group-hover:bottom-16">
+        <p class="mb-3">Personal Profile</p>
+        <form class="space-y-2">
+          <div>
+            <label class="block text-xs mb-1">Email</label>
+            <input type="text" class="w-full rounded-lg bg-white/5 border border-white/20 px-3 py-2 text-white focus:outline-none focus:border-gold">
+          </div>
+          <div>
+            <label class="block text-xs mb-1">Comment</label>
+            <textarea rows="3" class="w-full rounded-lg bg-white/5 border border-white/20 px-3 py-2 text-white focus:outline-none focus:border-gold"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-gold text-black font-bold py-2 rounded-lg hover:opacity-90 transition">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
