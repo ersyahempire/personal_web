@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ersyah Empire - Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- RESET & ASAS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0f0c29;  /* Fallback */
+            background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Elak scrollbar dari animasi background */
+            color: white;
+            position: relative;
+        }
+
+        /* --- BACKGROUND ANIMATION (ORBS) --- */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 1;
+            opacity: 0.8;
+            animation: float 10s infinite ease-in-out alternate;
+        }
+
+        .orb-1 {
+            top: -10%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(#ff00cc, #333399);
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            bottom: -10%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(#00c6ff, #0072ff);
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            top: 40%;
+            left: 40%;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(#f12711, #f5af19);
+            opacity: 0.6;
+            animation: float 15s infinite ease-in-out alternate-reverse;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 50px); }
+        }
+
+        /* --- GLASSMORPHISM CARD --- */
+        .glass-card {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px); /* Safari support */
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transform-style: preserve-3d;
+            transition: transform 0.1s;
+        }
+
+        /* --- KANDUNGAN --- */
+        .glass-card h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+        }
+
+        .glass-card p {
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .logo-area {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #fff;
+            background: linear-gradient(45deg, #ffd700, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- BUTTONS --- */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .glass-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-size: 1rem;
+        }
+
+        .glass-btn i {
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Hover Effects */
+        .glass-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .glass-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .glass-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Footer Copyright */
+        .footer {
+            margin-top: 30px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="glass-card" id="tiltCard">
+        <div class="logo-area">
+            <i class="fa-solid fa-crown"></i>
+        </div>
+        <h1>Selamat Datang</h1>
+        <p>ke Ersyah Empire</p>
+
+        <div class="btn-container">
+            <a href="#" class="glass-btn">
+                <i class="fa-solid fa-building"></i> Ersyah Empire
+            </a>
+            <a href="#" class="glass-btn">
+                <i class="fa-solid fa-house-chimney"></i> Ersyah Homestay
+            </a>
+            <a href="#" class="glass-btn">
+                <i class="fa-solid fa-share-nodes"></i> Sosial Media
+            </a>
+            <a href="#" class="glass-btn">
+                <i class="fa-solid fa-phone"></i> Hubungi
+            </a>
+        </div>
+
+        <div class="footer">
+            &copy; 2025 Ersyah Empire. Hak Cipta Terpelihara.
+        </div>
+    </div>
+
+    <script>
+        const card = document.getElementById('tiltCard');
+
+        document.addEventListener('mousemove', (e) => {
+            // Dapatkan lebar dan tinggi window
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            // Dapatkan posisi cursor
+            const x = e.clientX;
+            const y = e.clientY;
+
+            // Kira kordinat tengah
+            const xMid = width / 2;
+            const yMid = height / 2;
+
+            // Kira pergerakan (Max 15 degree tilt)
+            const xOffset = ((x - xMid) / xMid) * 15;
+            const yOffset = ((y - yMid) / yMid) * 15;
+
+            // Apply transformasi CSS (Songsang paksi X dan Y untuk kesan tilt natural)
+            card.style.transform = `rotateY(${xOffset}deg) rotateX(${-yOffset}deg)`;
+        });
+
+        // Reset bila mouse keluar (Optional)
+        document.addEventListener('mouseleave', () => {
+            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+        });
+    </script>
+</body>
+</html>
