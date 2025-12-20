@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ersyah Empire - Meta Style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- 1. RESET & CORE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #000;
+            color: white;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden; /* Elak scroll vertikal */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* --- 2. BACKGROUND MESH (Meta Style Gradient) --- */
+        .bg-mesh {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 10% 20%, rgba(29, 78, 216, 0.4) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.3) 0%, transparent 40%),
+                        radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.2) 0%, transparent 60%);
+            filter: blur(40px);
+            animation: pulseBackground 10s infinite alternate;
+        }
+
+        @keyframes pulseBackground {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+
+        /* --- 3. HEADER --- */
+        header {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 0 20px;
+            z-index: 20;
+        }
+
+        .brand-name {
+            font-weight: 900;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #fff, #ccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-brand {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin-top: 5px;
+        }
+
+        /* --- 4. HORIZONTAL SLIDER CONTAINER --- */
+        .slider-container {
+            display: flex;
+            align-items: center;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding: 0 25px; /* Padding tepi supaya kad pertama/terakhir nampak center */
+            height: 70vh; /* Tinggi kawasan slider */
+            width: 100%;
+            
+            /* Sembunyi Scrollbar */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE/Edge */
+        }
+
+        .slider-container::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+
+        /* --- 5. CARDS (Meta Glass Style) --- */
+        .card {
+            min-width: 85vw; /* Lebar kad di mobile */
+            height: 55vh;    /* Tinggi kad */
+            scroll-snap-align: center;
+            
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Content di bawah */
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: white;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        /* Gambar/Ikon Latar Belakang Abstrak dalam kad */
+        .card-visual {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            font-size: 8rem;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 30px rgba(255,255,255,0.2));
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-visual {
+            transform: translate(-50%, -60%) scale(1.1) rotate(5deg);
+        }
+
+        /* Content Teks */
+        .card-content {
+            z-index: 2;
+        }
+
+        .card-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            opacity: 0.7;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .card-btn {
+            display: inline-flex;
+            align-items: center;
+            background: white;
+            color: black;
+            padding: 12px 24px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        
+        .card-btn i { margin-left: 8px; }
+
+        /* Tablet/Desktop Tweaks */
+        @media (min-width: 768px) {
+            .card {
+                min-width: 350px;
+                height: 500px;
+            }
+            .slider-container {
+                padding: 0 calc(50vw - 175px); /* Center slide pertama di desktop */
+            }
+        }
+
+        /* --- 6. INDICATORS (DOTS) --- */
+        .indicators {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            width: 25px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        /* --- 7. HELPER HINT --- */
+        .swipe-hint {
+            position: absolute;
+            bottom: 80px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.7rem;
+            opacity: 0.5;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeInOut 3s infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="bg-mesh"></div>
+
+    <header>
+        <div class="brand-name">ERSYAH EMPIRE</div>
+        <div class="sub-brand">Selamat Datang</div>
+    </header>
+
+    <div class="slider-container" id="slider">
+        
+        <a href="#link-empire" class="card">
+            <div class="card-visual">👑</div> <div class="card-content">
+                <h2 class="card-title">Ersyah<br>Empire</h2>
+                <p class="card-desc">Portal rasmi korporat dan perniagaan kami.</p>
+                <div class="card-btn">Terokai <i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+        </a>
+
+        <a href="#link-homestay" class="card">
+            <div class="card-visual">🏡</div>
+            <div class="card-content">
+                <h2 class="card-title">Ersyah<br>Homestay</h2>
+                <p class="card-desc">Penginapan selesa, mewah dan mampu milik.</p>
+                <div class="card-btn">Tempah <i class="fa-solid fa-calendar-check"></i></div>
+            </div>
+        </a>
+
+        <a href="#link-sosial" class="card">
+            <div class="card-visual">✨</div>
+            <div class="card-content">
+                <h2 class="card-title">Sosial<br>Media</h2>
+                <p class="card-desc">Lihat aktiviti terkini di platform digital.</p>
+                <div class="card-btn">Ikuti Kami <i class="fa-solid fa-share-nodes"></i></div>
+            </div>
+        </a>
+
+        <a href="#link-contact" class="card">
+            <div class="card-visual">📞</div>
+            <div class="card-content">
+                <h2 class="card-title">Hubungi<br>Kami</h2>
+                <p class="card-desc">Saluran terus WhatsApp dan panggilan.</p>
+                <div class="card-btn">Tekan Sini <i class="fa-solid fa-phone"></i></div>
+            </div>
+        </a>
+
+    </div>
+
+    <div class="swipe-hint">
+        <i class="fa-solid fa-left-right"></i> Slide Kiri Kanan
+    </div>
+
+    <div class="indicators">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const cards = document.querySelectorAll('.card');
+        const dots = document.querySelectorAll('.dot');
+
+        // Fungsi untuk mengesan kad mana yang sedang dipaparkan
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Dapatkan index kad semasa
+                    const index = Array.from(cards).indexOf(entry.target);
+                    
+                    // Update dots
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    if (dots[index]) {
+                        dots[index].classList.add('active');
+                    }
+                }
+            });
+        }, {
+            root: slider, // Perhatikan dalam container slider
+            threshold: 0.6 // Trigger bila 60% kad kelihatan
+        });
+
+        // Mula observe setiap kad
+        cards.forEach((card) => {
+            observer.observe(card);
+        });
+
+        // Tambahan: Smooth scroll bila tekan dot (Optional)
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            });
+        });
+    </script>
+</body>
+</html>
